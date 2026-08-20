@@ -301,7 +301,82 @@ function showNotification(message, type = 'info') {
 }
 
 /**
- * Confirm action
+ * Custom confirmation modal system (blue glass theme)
+ * Replaces native browser confirm() with styled modal
+ */
+let _confirmModalResolve = null;
+
+function _injectConfirmModal() {
+    if (document.getElementById('confirmModal')) return;
+    const html = `
+    <div id="confirmModal" class="confirm-modal">
+        <div class="confirm-modal-content">
+            <div class="confirm-modal-icon" id="confirmModalIcon">
+                <i class="bi bi-exclamation-triangle"></i>
+            </div>
+            <h3 id="confirmModalTitle">Are you sure?</h3>
+            <p id="confirmModalMessage">This action cannot be undone.</p>
+            <div class="confirm-modal-actions">
+                <button class="btn btn-cancel" id="confirmModalCancel">Cancel</button>
+                <button class="btn btn-confirm-destructive" id="confirmModalOk">Confirm</button>
+            </div>
+        </div>
+    </div>`;
+    document.body.insertAdjacentHTML('beforeend', html);
+    document.getElementById('confirmModalCancel').addEventListener('click', function() {
+        _hideConfirmModal(false);
+    });
+    document.getElementById('confirmModalOk').addEventListener('click', function() {
+        _hideConfirmModal(true);
+    });
+    document.getElementById('confirmModal').addEventListener('click', function(e) {
+        if (e.target === this) _hideConfirmModal(false);
+    });
+}
+
+function _hideConfirmModal(confirmed) {
+    const modal = document.getElementById('confirmModal');
+    if (modal) modal.classList.remove('active');
+    if (_confirmModalResolve) {
+        _confirmModalResolve(confirmed);
+        _confirmModalResolve = null;
+    }
+}
+
+/**
+ * Show a styled confirmation modal
+ * @param {string} title - Modal title
+ * @param {string} message - Modal description
+ * @param {object} options - { type: 'destructive'|'warning'|'primary', confirmText: string, icon: string }
+ * @returns {Promise<boolean>} - Resolves true if confirmed, false if cancelled
+ */
+function showConfirmModal(title, message, options = {}) {
+    _injectConfirmModal();
+    const modal = document.getElementById('confirmModal');
+    const iconEl = document.getElementById('confirmModalIcon');
+    const titleEl = document.getElementById('confirmModalTitle');
+    const msgEl = document.getElementById('confirmModalMessage');
+    const btnOk = document.getElementById('confirmModalOk');
+    const type = options.type || 'destructive';
+
+    titleEl.textContent = title;
+    msgEl.textContent = message;
+    btnOk.textContent = options.confirmText || 'Confirm';
+
+    iconEl.className = 'confirm-modal-icon ' + type;
+    iconEl.innerHTML = '<i class="bi ' + (options.icon || (type === 'destructive' ? 'bi-trash' : type === 'warning' ? 'bi-exclamation-triangle' : 'bi-question-circle')) + '"></i>';
+
+    btnOk.className = 'btn ' + (type === 'destructive' ? 'btn-confirm-destructive' : type === 'warning' ? 'btn-confirm-destructive' : 'btn-confirm-primary');
+
+    modal.classList.add('active');
+
+    return new Promise(function(resolve) {
+        _confirmModalResolve = resolve;
+    });
+}
+
+/**
+ * Confirm action (legacy wrapper for backward compatibility)
  * @param {string} message - Confirmation message
  * @returns {boolean} - True if confirmed
  */

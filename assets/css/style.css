@@ -750,7 +750,8 @@ tbody tr:hover {
     .navbar,
     .sidebar,
     .btn,
-    .modal {
+    .modal,
+    .confirm-modal {
         display: none !important;
     }
 
@@ -1578,7 +1579,8 @@ tbody tr:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(44, 62, 80, 0.4);
+    backdrop-filter: blur(4px);
     animation: fadeIn 0.3s ease-out;
     justify-content: center;
     align-items: center;
@@ -1589,27 +1591,42 @@ tbody tr:hover {
 }
 
 .confirm-modal-content {
-    background: #fff;
+    background: linear-gradient(135deg, rgba(237, 246, 249, 0.97) 0%, rgba(190, 227, 248, 0.95) 50%, rgba(255, 255, 255, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(90, 169, 230, 0.3);
     border-radius: var(--radius);
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     width: 90%;
     max-width: 420px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 60px rgba(44, 62, 80, 0.2), 0 0 40px rgba(90, 169, 230, 0.1);
     animation: slideUp 0.3s ease-out;
     text-align: center;
 }
 
 .confirm-modal-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--primary-lighter) 0%, rgba(90, 169, 230, 0.2) 100%);
+    color: var(--primary);
+    border: 2px solid rgba(90, 169, 230, 0.3);
 }
 
 .confirm-modal-icon.destructive {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.2) 100%);
     color: var(--danger);
+    border-color: rgba(231, 76, 60, 0.3);
 }
 
 .confirm-modal-icon.warning {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.2) 100%);
     color: var(--warning);
+    border-color: rgba(255, 193, 7, 0.3);
 }
 
 .confirm-modal-content h3 {
@@ -1622,6 +1639,7 @@ tbody tr:hover {
     color: var(--gray);
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
 .confirm-modal-actions {

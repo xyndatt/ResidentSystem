@@ -353,7 +353,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" style="display: inline;">
                                     <input type="hidden" name="action" value="delete_child">
                                     <input type="hidden" name="child_id" value="<?php echo $child['id']; ?>">
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); var f=this.closest('form'); showConfirmModal('Remove Child', 'Are you sure you want to remove this child record?', {type: 'destructive', confirmText: 'Remove'}).then(function(ok){ if(ok) f.submit(); });">
                                         <i class="bi bi-trash"></i> Remove
                                     </button>
                                 </form>

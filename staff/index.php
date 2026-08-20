@@ -117,22 +117,22 @@ $admin_name = $_SESSION["username"] ?? 'Staff';
         </div>
 
         <footer class="global-footer">
-            <div class="footer-grid">
-                <div class="footer-brand">
+            <div class="footer-container">
+                <div class="footer-column">
                     <h3><i class="bi bi-hospital"></i> Barangay Health Center</h3>
                     <p>Empowering our community through efficient health services and modern technology.</p>
                 </div>
                 <div class="footer-column">
-                    <h4>Contact</h4>
+                    <h3>Contact</h3>
                     <p><i class="bi bi-telephone"></i> (02) 8888-1234</p>
                     <p><i class="bi bi-envelope"></i> health@barangay.gov</p>
                 </div>
                 <div class="footer-column">
-                    <h4>Address</h4>
+                    <h3>Address</h3>
                     <p><i class="bi bi-geo-alt"></i> 123 Health Street, Barangay Center, Metro Manila</p>
                 </div>
                 <div class="footer-column">
-                    <h4>Office Hours</h4>
+                    <h3>Office Hours</h3>
                     <p><i class="bi bi-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
                 </div>
             </div>

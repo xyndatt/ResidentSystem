@@ -163,7 +163,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
         <!-- Add Resident Form -->
         <div class="card">
             <div class="card-header">
-                <h3>Resident Information</h3>
+                <h3>Personal Information</h3>
             </div>
             <div class="card-body">
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="preventDuplicateSubmit(this.querySelector('button[type=submit]'))">

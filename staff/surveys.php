@@ -86,8 +86,10 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
             <li><a href="manage_staff.php"><i class="bi bi-person-badge"></i> Manage Staff</a></li>
             <li><a href="search.php"><i class="bi bi-search"></i> Search</a></li>
             <li><a href="reports.php"><i class="bi bi-file-earmark-pdf"></i> Reports</a></li>
-            <li><a href="surveys.php" class="active"><i class="bi bi-clipboard-data"></i> Surveys</a></li>
             <li><a href="activity_logs.php"><i class="bi bi-clock-history"></i> Activity Logs</a></li>
+            <li class="sidebar-divider"><span>Surveys</span></li>
+            <li><a href="surveys.php" class="active"><i class="bi bi-clipboard-check"></i> Manage Surveys</a></li>
+            <li><a href="survey_results.php"><i class="bi bi-bar-chart"></i> Survey Results</a></li>
             <li><a href="../auth/logout.php"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
         </ul>
     </aside>
@@ -185,13 +187,13 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                                 <a href="surveys.php?action=toggle&id=<?php echo $survey['id']; ?>" 
                                                    class="btn btn-sm btn-secondary" 
                                                    title="<?php echo $survey['is_active'] ? 'Deactivate' : 'Activate'; ?>"
-                                                   onclick="return confirm('Are you sure you want to <?php echo $survey['is_active'] ? 'deactivate' : 'activate'; ?> this survey?')">
+                                                   onclick="event.preventDefault(); showConfirmModal('<?php echo $survey['is_active'] ? 'Deactivate' : 'Activate'; ?> Survey', 'Are you sure you want to <?php echo $survey['is_active'] ? 'deactivate' : 'activate'; ?> this survey?', {type: 'primary', confirmText: '<?php echo $survey['is_active'] ? 'Deactivate' : 'Activate'; ?>'}).then(function(ok){ if(ok) window.location.href='surveys.php?action=toggle&id=<?php echo $survey['id']; ?>'; });">
                                                     <i class="bi bi-<?php echo $survey['is_active'] ? 'pause' : 'play'; ?>-circle"></i>
                                                 </a>
                                                 <a href="surveys.php?action=delete&id=<?php echo $survey['id']; ?>" 
                                                    class="btn btn-sm btn-danger" 
                                                    title="Delete"
-                                                   onclick="return confirm('Are you sure you want to delete this survey? This action cannot be undone.')">
+                                                   onclick="event.preventDefault(); showConfirmModal('Delete Survey', 'Are you sure you want to delete this survey? This action cannot be undone.', {type: 'destructive', confirmText: 'Delete'}).then(function(ok){ if(ok) window.location.href='surveys.php?action=delete&id=<?php echo $survey['id']; ?>'; });">
                                                     <i class="bi bi-trash"></i>
                                                 </a>
                                             </div>
@@ -218,34 +220,27 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
 
     <!-- Global Footer -->
     <footer class="global-footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3><i class="bi bi-hospital"></i> Resident Information System</h3>
-                <p>Streamlining community management and enhancing resident services.</p>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3><i class="bi bi-hospital"></i> Barangay Health Center</h3>
+                <p>Empowering our community through efficient health services and modern technology.</p>
             </div>
             <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="dashboard.php">Dashboard</a></li>
-                    <li><a href="residents.php">Residents</a></li>
-                    <li><a href="surveys.php">Surveys</a></li>
-                </ul>
+                <h3>Contact</h3>
+                <p><i class="bi bi-telephone"></i> (02) 8888-1234</p>
+                <p><i class="bi bi-envelope"></i> health@barangay.gov</p>
             </div>
             <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Contact Admin</a></li>
-                </ul>
+                <h3>Address</h3>
+                <p><i class="bi bi-geo-alt"></i> 123 Health Street, Barangay Center, Metro Manila</p>
             </div>
             <div class="footer-column">
-                <h4>Contact</h4>
-                <p><i class="bi bi-envelope"></i> admin@ris.com</p>
-                <p><i class="bi bi-geo-alt"></i> Community Office</p>
+                <h3>Office Hours</h3>
+                <p><i class="bi bi-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?php echo date('Y'); ?> Resident Information System. All rights reserved.</p>
+            <p>&copy; 2026 Barangay Health Center. All rights reserved.</p>
         </div>
     </footer>
 

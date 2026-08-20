@@ -927,34 +927,27 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
 
     <!-- Global Footer -->
     <footer class="global-footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3><i class="bi bi-hospital"></i> Resident Information System</h3>
-                <p>Streamlining community management and enhancing resident services.</p>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3><i class="bi bi-hospital"></i> Barangay Health Center</h3>
+                <p>Empowering our community through efficient health services and modern technology.</p>
             </div>
             <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="dashboard.php">Dashboard</a></li>
-                    <li><a href="residents.php">Residents</a></li>
-                    <li><a href="surveys.php">Surveys</a></li>
-                </ul>
+                <h3>Contact</h3>
+                <p><i class="bi bi-telephone"></i> (02) 8888-1234</p>
+                <p><i class="bi bi-envelope"></i> health@barangay.gov</p>
             </div>
             <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Contact Admin</a></li>
-                </ul>
+                <h3>Address</h3>
+                <p><i class="bi bi-geo-alt"></i> 123 Health Street, Barangay Center, Metro Manila</p>
             </div>
             <div class="footer-column">
-                <h4>Contact</h4>
-                <p><i class="bi bi-envelope"></i> admin@ris.com</p>
-                <p><i class="bi bi-geo-alt"></i> Community Office</p>
+                <h3>Office Hours</h3>
+                <p><i class="bi bi-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?php echo date('Y'); ?> Resident Information System. All rights reserved.</p>
+            <p>&copy; 2026 Barangay Health Center. All rights reserved.</p>
         </div>
     </footer>
 

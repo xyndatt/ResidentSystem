@@ -327,7 +327,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                 <?php else: ?>
                     <div class="empty-state">
                         <div class="empty-icon"><i class="bi bi-inbox"></i></div>
-                        <h3>No Recent Updates</h3>
+                        <h3>No Updates This Week</h3>
                         <p>No resident records have been updated this week.</p>
                     </div>
                 <?php endif; ?>
@@ -346,7 +346,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                         <p style="font-size: 1.8rem; font-weight: 700; color: #2C3E50; margin: 0.5rem 0 0 0;"><?php echo $total_residents; ?></p>
                     </div>
                     <div>
-                        <label style="font-weight: 600; color: #5AA9E6;">Recent Updates (7 days)</label>
+                        <label style="font-weight: 600; color: #5AA9E6;">Updates This Week</label>
                         <p style="font-size: 1.8rem; font-weight: 700; color: #2ECC71; margin: 0.5rem 0 0 0;"><?php echo $recent_updates; ?></p>
                     </div>
                     <div>

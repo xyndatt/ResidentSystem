@@ -147,8 +147,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
 
         <!-- Dashboard Cards -->
         <div class="dashboard-grid">
-            <!-- Welcome Card -->
-            <div class="stat-card">
+    <!-- Welcome Card -->
+    <div class="stat-card stat-card-accent-blue">
                 <div class="stat-card-icon">
                     <i class="bi bi-hand-thumbs-up"></i>
                 </div>
@@ -156,8 +156,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                 <div class="stat-card-label">Welcome to Resident Information System</div>
             </div>
 
-            <!-- Profile Completion Card -->
-            <div class="stat-card">
+    <!-- Profile Completion Card -->
+    <div class="stat-card stat-card-accent-green">
                 <div class="stat-card-icon">
                     <i class="bi bi-percent"></i>
                 </div>
@@ -165,8 +165,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                 <div class="stat-card-label">Profile Complete</div>
             </div>
 
-            <!-- Photo Status Card -->
-            <div class="stat-card">
+    <!-- Photo Status Card -->
+    <div class="stat-card stat-card-accent-orange">
                 <div class="stat-card-icon">
                     <i class="bi bi-image"></i>
                 </div>
@@ -174,8 +174,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                 <div class="stat-card-label">Photo Uploaded</div>
             </div>
 
-            <!-- Available Surveys Card -->
-            <div class="stat-card">
+    <!-- Available Surveys Card -->
+    <div class="stat-card stat-card-accent-purple">
                 <div class="stat-card-icon">
                     <i class="bi bi-clipboard-check"></i>
                 </div>
@@ -183,8 +183,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                 <div class="stat-card-label">Available Surveys</div>
             </div>
 
-            <!-- Last Update Card -->
-            <div class="stat-card">
+    <!-- Last Update Card -->
+    <div class="stat-card stat-card-accent-blue">
                 <div class="stat-card-icon">
                     <i class="bi bi-calendar-event"></i>
                 </div>
