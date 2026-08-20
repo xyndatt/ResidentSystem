@@ -168,21 +168,21 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Survey Title <span style="color: red;">*</span></label>
-                            <input type="text" name="title" class="form-control" required placeholder="Enter survey title" value="<?php echo isset($_POST['title']) ? htmlspecialchars($_POST['title']) : ''; ?>">
+                            <label for="survey_title">Survey Title <span style="color: red;">*</span></label>
+                            <input type="text" name="title" id="survey_title" class="form-control" required placeholder="Enter survey title" autocomplete="off" value="<?php echo isset($_POST['title']) ? htmlspecialchars($_POST['title']) : ''; ?>">
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
-                            <textarea name="description" class="form-control" rows="3" placeholder="Enter survey description (optional)"><?php echo isset($_POST['description']) ? htmlspecialchars($_POST['description']) : ''; ?></textarea>
+                            <label for="survey_description">Description</label>
+                            <textarea name="description" id="survey_description" class="form-control" rows="3" autocomplete="off" placeholder="Enter survey description (optional)"><?php echo isset($_POST['description']) ? htmlspecialchars($_POST['description']) : ''; ?></textarea>
                         </div>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                             <div class="form-group">
-                                <label>Open Date</label>
-                                <input type="date" name="open_date" class="form-control" value="<?php echo isset($_POST['open_date']) ? htmlspecialchars($_POST['open_date']) : ''; ?>">
+                                <label for="survey_open_date">Open Date</label>
+                                <input type="date" name="open_date" id="survey_open_date" class="form-control" autocomplete="off" value="<?php echo isset($_POST['open_date']) ? htmlspecialchars($_POST['open_date']) : ''; ?>">
                             </div>
                             <div class="form-group">
-                                <label>Close Date</label>
-                                <input type="date" name="close_date" class="form-control" value="<?php echo isset($_POST['close_date']) ? htmlspecialchars($_POST['close_date']) : ''; ?>">
+                                <label for="survey_close_date">Close Date</label>
+                                <input type="date" name="close_date" id="survey_close_date" class="form-control" autocomplete="off" value="<?php echo isset($_POST['close_date']) ? htmlspecialchars($_POST['close_date']) : ''; ?>">
                             </div>
                         </div>
                     </div>
@@ -268,13 +268,13 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                 '</button>' +
             '</div>' +
             '<div class="form-group">' +
-                '<label>Question Text <span style="color: red;">*</span></label>' +
-                '<input type="text" name="question_text[]" class="form-control" required placeholder="Enter your question">' +
+                '<label for="question_text_' + qNum + '">Question Text <span style="color: red;">*</span></label>' +
+                '<input type="text" name="question_text[]" id="question_text_' + qNum + '" class="form-control" required placeholder="Enter your question" autocomplete="off">' +
             '</div>' +
             '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">' +
                 '<div class="form-group">' +
-                    '<label>Question Type</label>' +
-                    '<select name="question_type[]" class="form-control" onchange="toggleQuestionOptions(this, ' + qNum + ')">' +
+                    '<label for="question_type_' + qNum + '">Question Type</label>' +
+                    '<select name="question_type[]" id="question_type_' + qNum + '" class="form-control" onchange="toggleQuestionOptions(this, ' + qNum + ')">' +
                         '<option value="multiple_choice">Multiple Choice</option>' +
                         '<option value="yes_no">Yes/No</option>' +
                         '<option value="rating_scale">Rating Scale</option>' +
@@ -292,10 +292,10 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                 '<div class="choices-container" id="choices_' + qNum + '">' +
                     '<label style="font-weight: 600; color: var(--dark); font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Choices</label>' +
                     '<div class="choice-row" style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">' +
-                        '<input type="text" name="question_choices[' + qNum + '][]" class="form-control" placeholder="Choice 1">' +
+                        '<label for="question_choice_' + qNum + '_0"><input type="text" name="question_choices[' + qNum + '][]" id="question_choice_' + qNum + '_0" class="form-control" placeholder="Choice 1" autocomplete="off"></label>' +
                     '</div>' +
                     '<div class="choice-row" style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">' +
-                        '<input type="text" name="question_choices[' + qNum + '][]" class="form-control" placeholder="Choice 2">' +
+                        '<label for="question_choice_' + qNum + '_1"><input type="text" name="question_choices[' + qNum + '][]" id="question_choice_' + qNum + '_1" class="form-control" placeholder="Choice 2" autocomplete="off"></label>' +
                     '</div>' +
                 '</div>' +
                 '<button type="button" class="btn btn-secondary btn-sm" style="width: auto; margin-top: 0.5rem;" onclick="addChoice(' + qNum + ')">' +
@@ -324,7 +324,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
         if(!container) return;
         var count = container.querySelectorAll('.choice-row').length + 1;
         var html = '<div class="choice-row" style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">' +
-            '<input type="text" name="question_choices[' + qNum + '][]" class="form-control" placeholder="Choice ' + count + '">' +
+            '<label for="question_choice_' + qNum + '_' + (count - 1) + '"><input type="text" name="question_choices[' + qNum + '][]" id="question_choice_' + qNum + '_' + (count - 1) + '" class="form-control" placeholder="Choice ' + count + '" autocomplete="off"></label>' +
             '<button type="button" class="btn btn-danger btn-sm" style="width: auto; flex-shrink: 0;" onclick="removeChoice(this)">' +
                 '<i class="bi bi-x"></i>' +
             '</button>' +
@@ -346,10 +346,10 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
             optionsDiv.innerHTML = '<div class="choices-container" id="choices_' + qNum + '">' +
                 '<label style="font-weight: 600; color: var(--dark); font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Choices</label>' +
                 '<div class="choice-row" style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">' +
-                    '<input type="text" name="question_choices[' + qNum + '][]" class="form-control" placeholder="Choice 1">' +
+                    '<label for="question_choice_' + qNum + '_0"><input type="text" name="question_choices[' + qNum + '][]" id="question_choice_' + qNum + '_0" class="form-control" placeholder="Choice 1" autocomplete="off"></label>' +
                 '</div>' +
                 '<div class="choice-row" style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">' +
-                    '<input type="text" name="question_choices[' + qNum + '][]" class="form-control" placeholder="Choice 2">' +
+                    '<label for="question_choice_' + qNum + '_1"><input type="text" name="question_choices[' + qNum + '][]" id="question_choice_' + qNum + '_1" class="form-control" placeholder="Choice 2" autocomplete="off"></label>' +
                 '</div>' +
             '</div>' +
             '<button type="button" class="btn btn-secondary btn-sm" style="width: auto; margin-top: 0.5rem;" onclick="addChoice(' + qNum + ')">' +
@@ -357,8 +357,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
             '</button>';
         } else if(type === 'rating_scale'){
             optionsDiv.innerHTML = '<div class="form-group" style="margin-top: 0.5rem;">' +
-                '<label>Maximum Scale Value</label>' +
-                '<input type="number" name="question_scale[' + qNum + ']" class="form-control" min="2" max="10" value="5" style="max-width: 150px;">' +
+                '<label for="question_scale_' + qNum + '">Maximum Scale Value</label>' +
+                '<input type="number" name="question_scale[' + qNum + ']" id="question_scale_' + qNum + '" class="form-control" min="2" max="10" value="5" style="max-width: 150px;" autocomplete="off">' +
                 '<small class="text-muted">Residents will rate from 1 to this value</small>' +
             '</div>';
         } else {

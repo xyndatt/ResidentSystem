@@ -162,9 +162,9 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
 
                         <!-- Resident Number (Read-only) -->
                         <div class="form-group">
-                            <label>Resident Number</label>
+                            <label for="resident_number">Resident Number</label>
                             <div style="position: relative;">
-                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($resident['resident_number']); ?>" readonly style="background-color: #f0f0f0; cursor: not-allowed; padding-left: 2.5rem;">
+                                <input type="text" id="resident_number" class="form-control" value="<?php echo htmlspecialchars($resident['resident_number']); ?>" readonly autocomplete="off" style="background-color: #f0f0f0; cursor: not-allowed; padding-left: 2.5rem;">
                                 <i class="bi bi-lock" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #95A5A6;"></i>
                             </div>
                             <small style="color: #95A5A6; display: block; margin-top: 0.25rem;">Resident number cannot be changed.</small>
@@ -173,32 +173,32 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                         <!-- Name Fields -->
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                             <div class="form-group">
-                                <label>Last Name <span style="color: red;">*</span></label>
-                                <input type="text" name="last_name" class="form-control" value="<?php echo htmlspecialchars($resident['last_name']); ?>" required>
+                                <label for="last_name">Last Name <span style="color: red;">*</span></label>
+                                <input type="text" id="last_name" name="last_name" class="form-control" autocomplete="family-name" value="<?php echo htmlspecialchars($resident['last_name']); ?>" required>
                             </div>
                             <div class="form-group">
-                                <label>First Name <span style="color: red;">*</span></label>
-                                <input type="text" name="first_name" class="form-control" value="<?php echo htmlspecialchars($resident['first_name']); ?>" required>
+                                <label for="first_name">First Name <span style="color: red;">*</span></label>
+                                <input type="text" id="first_name" name="first_name" class="form-control" autocomplete="given-name" value="<?php echo htmlspecialchars($resident['first_name']); ?>" required>
                             </div>
                             <div class="form-group">
-                                <label>Middle Name</label>
-                                <input type="text" name="middle_name" class="form-control" value="<?php echo htmlspecialchars($resident['middle_name'] ?? ''); ?>">
+                                <label for="middle_name">Middle Name</label>
+                                <input type="text" id="middle_name" name="middle_name" class="form-control" autocomplete="additional-name" value="<?php echo htmlspecialchars($resident['middle_name'] ?? ''); ?>">
                             </div>
                             <div class="form-group">
-                                <label>Extension Name</label>
-                                <input type="text" name="extension_name" class="form-control" value="<?php echo htmlspecialchars($resident['extension_name'] ?? ''); ?>">
+                                <label for="extension_name">Extension Name</label>
+                                <input type="text" id="extension_name" name="extension_name" class="form-control" autocomplete="honorific-suffix" value="<?php echo htmlspecialchars($resident['extension_name'] ?? ''); ?>">
                             </div>
                         </div>
 
                         <!-- Birthday, Gender, Civil Status, Blood Type -->
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                             <div class="form-group">
-                                <label>Birthday</label>
-                                <input type="date" name="birthday" class="form-control" value="<?php echo htmlspecialchars($resident['birthday'] ?? ''); ?>">
+                                <label for="birthday">Birthday</label>
+                                <input type="date" id="birthday" name="birthday" class="form-control" autocomplete="bday" value="<?php echo htmlspecialchars($resident['birthday'] ?? ''); ?>">
                             </div>
                             <div class="form-group">
-                                <label>Gender</label>
-                                <select name="gender" class="form-control">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" class="form-control" autocomplete="sex">
                                     <option value="">Select Gender</option>
                                     <option value="Male" <?php echo ($resident['gender'] === 'Male') ? 'selected' : ''; ?>>Male</option>
                                     <option value="Female" <?php echo ($resident['gender'] === 'Female') ? 'selected' : ''; ?>>Female</option>
@@ -206,8 +206,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Civil Status</label>
-                                <select name="civil_status" class="form-control">
+                                <label for="civil_status">Civil Status</label>
+                                <select id="civil_status" name="civil_status" class="form-control" autocomplete="off">
                                     <option value="">Select Civil Status</option>
                                     <option value="Single" <?php echo ($resident['civil_status'] === 'Single') ? 'selected' : ''; ?>>Single</option>
                                     <option value="Married" <?php echo ($resident['civil_status'] === 'Married') ? 'selected' : ''; ?>>Married</option>
@@ -216,8 +216,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Blood Type</label>
-                                <select name="blood_type" class="form-control">
+                                <label for="blood_type">Blood Type</label>
+                                <select id="blood_type" name="blood_type" class="form-control" autocomplete="off">
                                     <option value="">Select Blood Type</option>
                                     <option value="O+" <?php echo ($resident['blood_type'] === 'O+') ? 'selected' : ''; ?>>O+</option>
                                     <option value="O-" <?php echo ($resident['blood_type'] === 'O-') ? 'selected' : ''; ?>>O-</option>
@@ -238,27 +238,27 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
 
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                             <div class="form-group">
-                                <label>Contact Number</label>
-                                <input type="tel" name="contact_number" class="form-control" value="<?php echo htmlspecialchars($resident['contact_number'] ?? ''); ?>">
+                                <label for="contact_number">Contact Number</label>
+                                <input type="tel" id="contact_number" name="contact_number" class="form-control" autocomplete="tel" value="<?php echo htmlspecialchars($resident['contact_number'] ?? ''); ?>">
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" name="email" class="form-control" value="<?php echo htmlspecialchars($resident['email'] ?? ''); ?>">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" autocomplete="email" value="<?php echo htmlspecialchars($resident['email'] ?? ''); ?>">
                             </div>
                             <div class="form-group">
-                                <label>Nationality</label>
-                                <input type="text" name="nationality" class="form-control" value="<?php echo htmlspecialchars($resident['nationality'] ?? ''); ?>">
+                                <label for="nationality">Nationality</label>
+                                <input type="text" id="nationality" name="nationality" class="form-control" autocomplete="nationality" value="<?php echo htmlspecialchars($resident['nationality'] ?? ''); ?>">
                             </div>
                             <div class="form-group">
-                                <label>Religion</label>
-                                <input type="text" name="religion" class="form-control" value="<?php echo htmlspecialchars($resident['religion'] ?? ''); ?>">
+                                <label for="religion">Religion</label>
+                                <input type="text" id="religion" name="religion" class="form-control" autocomplete="off" value="<?php echo htmlspecialchars($resident['religion'] ?? ''); ?>">
                             </div>
                         </div>
 
                         <!-- Address -->
                         <div class="form-group">
-                            <label>Address</label>
-                            <textarea name="address" class="form-control" rows="3"><?php echo htmlspecialchars($resident['address'] ?? ''); ?></textarea>
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" class="form-control" autocomplete="street-address" rows="3"><?php echo htmlspecialchars($resident['address'] ?? ''); ?></textarea>
                         </div>
                     </div>
 
@@ -268,19 +268,19 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
 
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                             <div class="form-group">
-                                <label>Occupation</label>
-                                <input type="text" name="occupation" class="form-control" value="<?php echo htmlspecialchars($resident['occupation'] ?? ''); ?>">
+                                <label for="occupation">Occupation</label>
+                                <input type="text" id="occupation" name="occupation" class="form-control" autocomplete="organization-title" value="<?php echo htmlspecialchars($resident['occupation'] ?? ''); ?>">
                             </div>
                             <div class="form-group">
-                                <label>Employer</label>
-                                <input type="text" name="employer" class="form-control" value="<?php echo htmlspecialchars($resident['employer'] ?? ''); ?>">
+                                <label for="employer">Employer</label>
+                                <input type="text" id="employer" name="employer" class="form-control" autocomplete="organization" value="<?php echo htmlspecialchars($resident['employer'] ?? ''); ?>">
                             </div>
                         </div>
 
                         <!-- Employer Address -->
                         <div class="form-group">
-                            <label>Employer Address</label>
-                            <textarea name="employer_address" class="form-control" rows="3"><?php echo htmlspecialchars($resident['employer_address'] ?? ''); ?></textarea>
+                            <label for="employer_address">Employer Address</label>
+                            <textarea id="employer_address" name="employer_address" class="form-control" autocomplete="off" rows="3"><?php echo htmlspecialchars($resident['employer_address'] ?? ''); ?></textarea>
                         </div>
                     </div>
 

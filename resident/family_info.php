@@ -271,20 +271,20 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                     
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                         <div class="form-group">
-                            <label>Spouse Name</label>
-                            <input type="text" name="spouse_name" class="form-control" value="<?php echo htmlspecialchars($spouse['spouse_name'] ?? ''); ?>">
+                            <label for="spouse_name">Spouse Name</label>
+                            <input type="text" id="spouse_name" name="spouse_name" class="form-control" autocomplete="off" value="<?php echo htmlspecialchars($spouse['spouse_name'] ?? ''); ?>">
                         </div>
                         <div class="form-group">
-                            <label>Occupation</label>
-                            <input type="text" name="spouse_occupation" class="form-control" value="<?php echo htmlspecialchars($spouse['occupation'] ?? ''); ?>">
+                            <label for="spouse_occupation">Occupation</label>
+                            <input type="text" id="spouse_occupation" name="spouse_occupation" class="form-control" autocomplete="off" value="<?php echo htmlspecialchars($spouse['occupation'] ?? ''); ?>">
                         </div>
                         <div class="form-group">
-                            <label>Employer</label>
-                            <input type="text" name="spouse_employer" class="form-control" value="<?php echo htmlspecialchars($spouse['employer'] ?? ''); ?>">
+                            <label for="spouse_employer">Employer</label>
+                            <input type="text" id="spouse_employer" name="spouse_employer" class="form-control" autocomplete="off" value="<?php echo htmlspecialchars($spouse['employer'] ?? ''); ?>">
                         </div>
                         <div class="form-group">
-                            <label>Contact Number</label>
-                            <input type="tel" name="spouse_contact" class="form-control" value="<?php echo htmlspecialchars($spouse['contact_number'] ?? ''); ?>">
+                            <label for="spouse_contact">Contact Number</label>
+                            <input type="tel" id="spouse_contact" name="spouse_contact" class="form-control" autocomplete="off" value="<?php echo htmlspecialchars($spouse['contact_number'] ?? ''); ?>">
                         </div>
                     </div>
 
@@ -308,16 +308,16 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                     
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                         <div class="form-group">
-                            <label>Child Name <span style="color: red;">*</span></label>
-                            <input type="text" name="child_name" class="form-control" required>
+                            <label for="child_name">Child Name <span style="color: red;">*</span></label>
+                            <input type="text" id="child_name" name="child_name" class="form-control" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>Birthday</label>
-                            <input type="date" name="child_birthday" class="form-control">
+                            <label for="child_birthday">Birthday</label>
+                            <input type="date" id="child_birthday" name="child_birthday" class="form-control" autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label>Gender</label>
-                            <select name="child_gender" class="form-control">
+                            <label for="child_gender">Gender</label>
+                            <select id="child_gender" name="child_gender" class="form-control">
                                 <option value="">Select Gender</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -377,20 +377,20 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                     
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                         <div class="form-group">
-                            <label>Father Name</label>
-                            <input type="text" name="father_name" class="form-control" value="<?php echo htmlspecialchars($parents['father_name'] ?? ''); ?>">
+                            <label for="father_name">Father Name</label>
+                            <input type="text" id="father_name" name="father_name" class="form-control" autocomplete="off" value="<?php echo htmlspecialchars($parents['father_name'] ?? ''); ?>">
                         </div>
                         <div class="form-group">
-                            <label>Mother Name</label>
-                            <input type="text" name="mother_name" class="form-control" value="<?php echo htmlspecialchars($parents['mother_name'] ?? ''); ?>">
+                            <label for="mother_name">Mother Name</label>
+                            <input type="text" id="mother_name" name="mother_name" class="form-control" autocomplete="off" value="<?php echo htmlspecialchars($parents['mother_name'] ?? ''); ?>">
                         </div>
                         <div class="form-group">
-                            <label>Occupation</label>
-                            <input type="text" name="parents_occupation" class="form-control" value="<?php echo htmlspecialchars($parents['occupation'] ?? ''); ?>">
+                            <label for="parents_occupation">Occupation</label>
+                            <input type="text" id="parents_occupation" name="parents_occupation" class="form-control" autocomplete="off" value="<?php echo htmlspecialchars($parents['occupation'] ?? ''); ?>">
                         </div>
                         <div class="form-group">
-                            <label>Contact Number</label>
-                            <input type="tel" name="parents_contact" class="form-control" value="<?php echo htmlspecialchars($parents['contact_number'] ?? ''); ?>">
+                            <label for="parents_contact">Contact Number</label>
+                            <input type="tel" id="parents_contact" name="parents_contact" class="form-control" autocomplete="off" value="<?php echo htmlspecialchars($parents['contact_number'] ?? ''); ?>">
                         </div>
                     </div>
 

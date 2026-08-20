@@ -128,9 +128,9 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
             <div class="card-body">
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <div style="margin-bottom: 1.5rem;">
-                        <label style="font-weight: 600; margin-bottom: 0.5rem; display: block;">Search Term</label>
+                        <label for="searchInput" style="font-weight: 600; margin-bottom: 0.5rem; display: block;">Search Term</label>
                         <div class="autocomplete-wrapper">
-                            <input type="text" name="search_term" id="searchInput" class="form-control" value="<?php echo htmlspecialchars($search_term); ?>" placeholder="Enter resident number, first name, or last name..." required>
+                            <input type="text" name="search_term" id="searchInput" class="form-control" value="<?php echo htmlspecialchars($search_term); ?>" placeholder="Enter resident number, first name, or last name..." autocomplete="off" required>
                             <i class="bi bi-search autocomplete-icon"></i>
                         </div>
                     </div>

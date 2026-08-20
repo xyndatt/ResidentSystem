@@ -143,28 +143,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                     <?php if(!$is_first_login): ?>
                         <div class="form-group">
-                            <label>Current Password <span style="color: red;">*</span></label>
-                            <input type="password" name="current_password" class="form-control" required>
+                            <label for="current_password">Current Password <span style="color: red;">*</span></label>
+                            <input type="password" name="current_password" id="current_password" class="form-control" autocomplete="current-password" required>
                         </div>
                     <?php else: ?>
                         <div class="alert alert-info">
                             <i class="bi bi-info-circle"></i> This is your first login. Your default password is your Resident Number.
                         </div>
                         <div class="form-group">
-                            <label>Current Password (Resident Number) <span style="color: red;">*</span></label>
-                            <input type="password" name="current_password" class="form-control" required>
+                            <label for="current_password_first">Current Password (Resident Number) <span style="color: red;">*</span></label>
+                            <input type="password" name="current_password" id="current_password_first" class="form-control" autocomplete="current-password" required>
                         </div>
                     <?php endif; ?>
 
                     <div class="form-group">
-                        <label>New Password <span style="color: red;">*</span></label>
-                        <input type="password" name="new_password" class="form-control" required minlength="6" data-strength="true" id="new_password">
+                        <label for="new_password">New Password <span style="color: red;">*</span></label>
+                        <input type="password" name="new_password" class="form-control" required minlength="6" data-strength="true" id="new_password" autocomplete="new-password">
                         <small style="color: #95A5A6; display: block; margin-top: 0.5rem;">Minimum 6 characters</small>
                     </div>
 
                     <div class="form-group">
-                        <label>Confirm New Password <span style="color: red;">*</span></label>
-                        <input type="password" name="confirm_password" class="form-control" required minlength="6" id="confirm_password">
+                        <label for="confirm_password">Confirm New Password <span style="color: red;">*</span></label>
+                        <input type="password" name="confirm_password" class="form-control" required minlength="6" id="confirm_password" autocomplete="new-password">
                     </div>
 
                     <!-- Password Requirements Checklist -->

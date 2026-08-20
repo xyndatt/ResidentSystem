@@ -174,37 +174,37 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                         <div class="form-section-title"><i class="bi bi-person"></i> Personal Information</div>
 
                         <div class="form-group">
-                            <label>Resident Number <span style="color: red;">*</span></label>
-                            <input type="text" name="resident_number" class="form-control" required>
+                                <label for="resident_number">Resident Number <span style="color: red;">*</span></label>
+                                <input type="text" id="resident_number" name="resident_number" class="form-control" autocomplete="off" required>
                         </div>
 
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                             <div class="form-group">
-                                <label>Last Name <span style="color: red;">*</span></label>
-                                <input type="text" name="last_name" class="form-control" required>
+                                <label for="last_name">Last Name <span style="color: red;">*</span></label>
+                                <input type="text" id="last_name" name="last_name" class="form-control" autocomplete="family-name" required>
                             </div>
                             <div class="form-group">
-                                <label>First Name <span style="color: red;">*</span></label>
-                                <input type="text" name="first_name" class="form-control" required>
+                                <label for="first_name">First Name <span style="color: red;">*</span></label>
+                                <input type="text" id="first_name" name="first_name" class="form-control" autocomplete="given-name" required>
                             </div>
                             <div class="form-group">
-                                <label>Middle Name</label>
-                                <input type="text" name="middle_name" class="form-control">
+                                <label for="middle_name">Middle Name</label>
+                                <input type="text" id="middle_name" name="middle_name" class="form-control" autocomplete="additional-name">
                             </div>
                             <div class="form-group">
-                                <label>Extension Name</label>
-                                <input type="text" name="extension_name" class="form-control">
+                                <label for="extension_name">Extension Name</label>
+                                <input type="text" id="extension_name" name="extension_name" class="form-control" autocomplete="honorific-suffix">
                             </div>
                         </div>
 
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                             <div class="form-group">
-                                <label>Birthday</label>
-                                <input type="date" name="birthday" class="form-control">
+                                <label for="birthday">Birthday</label>
+                                <input type="date" id="birthday" name="birthday" class="form-control" autocomplete="bday">
                             </div>
                             <div class="form-group">
-                                <label>Gender</label>
-                                <select name="gender" class="form-control">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" class="form-control" autocomplete="sex">
                                     <option value="">Select Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -212,8 +212,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Civil Status</label>
-                                <select name="civil_status" class="form-control">
+                                <label for="civil_status">Civil Status</label>
+                                <select id="civil_status" name="civil_status" class="form-control" autocomplete="off">
                                     <option value="">Select Civil Status</option>
                                     <option value="Single">Single</option>
                                     <option value="Married">Married</option>
@@ -222,8 +222,8 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Blood Type</label>
-                                <select name="blood_type" class="form-control">
+                                <label for="blood_type">Blood Type</label>
+                                <select id="blood_type" name="blood_type" class="form-control" autocomplete="off">
                                     <option value="">Select Blood Type</option>
                                     <option value="O+">O+</option>
                                     <option value="O-">O-</option>
@@ -244,26 +244,26 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
 
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                             <div class="form-group">
-                                <label>Contact Number</label>
-                                <input type="tel" name="contact_number" class="form-control">
+                                <label for="contact_number">Contact Number</label>
+                                <input type="tel" id="contact_number" name="contact_number" class="form-control" autocomplete="tel">
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" name="email" class="form-control">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" autocomplete="email">
                             </div>
                             <div class="form-group">
-                                <label>Nationality</label>
-                                <input type="text" name="nationality" class="form-control">
+                                <label for="nationality">Nationality</label>
+                                <input type="text" id="nationality" name="nationality" class="form-control" autocomplete="nationality">
                             </div>
                             <div class="form-group">
-                                <label>Religion</label>
-                                <input type="text" name="religion" class="form-control">
+                                <label for="religion">Religion</label>
+                                <input type="text" id="religion" name="religion" class="form-control" autocomplete="off">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label>Address</label>
-                            <textarea name="address" class="form-control" rows="3"></textarea>
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" class="form-control" rows="3" autocomplete="street-address"></textarea>
                         </div>
                     </div>
 
@@ -273,18 +273,18 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
 
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                             <div class="form-group">
-                                <label>Occupation</label>
-                                <input type="text" name="occupation" class="form-control">
+                                <label for="occupation">Occupation</label>
+                                <input type="text" id="occupation" name="occupation" class="form-control" autocomplete="organization-title">
                             </div>
                             <div class="form-group">
-                                <label>Employer</label>
-                                <input type="text" name="employer" class="form-control">
+                                <label for="employer">Employer</label>
+                                <input type="text" id="employer" name="employer" class="form-control" autocomplete="organization">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label>Employer Address</label>
-                            <textarea name="employer_address" class="form-control" rows="3"></textarea>
+                            <label for="employer_address">Employer Address</label>
+                            <textarea id="employer_address" name="employer_address" class="form-control" rows="3" autocomplete="off"></textarea>
                         </div>
                     </div>
 

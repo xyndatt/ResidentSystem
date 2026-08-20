@@ -192,20 +192,20 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                         <?php outputCSRFHiddenField(); ?>
                         <input type="hidden" name="add_staff" value="1">
                         <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="full_name" class="form-control" required>
+                            <label for="full_name">Full Name</label>
+                            <input type="text" name="full_name" id="full_name" class="form-control" autocomplete="name" required>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" name="username" class="form-control" required>
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" class="form-control" autocomplete="username" required>
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="password" class="form-control" required>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" autocomplete="new-password" required>
                         </div>
                         <div class="form-group">
-                            <label>Confirm Password</label>
-                            <input type="password" name="confirm_password" class="form-control" required>
+                            <label for="confirm_password">Confirm Password</label>
+                            <input type="password" name="confirm_password" id="confirm_password" class="form-control" autocomplete="new-password" required>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             <i class="bi bi-person-plus"></i> Create Account

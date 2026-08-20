@@ -162,7 +162,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])){
                         <h4 style="color: #2C3E50; margin-bottom: 0.5rem;">Drag and drop your photo here</h4>
                         <p style="color: #95A5A6; margin-bottom: 1.5rem;">or click to select a file</p>
                         
-                        <input type="file" name="photo" id="photoInput" class="form-control" accept="image/jpeg,image/png,image/jpg" required style="display: none;">
+                        <input type="file" name="photo" id="photoInput" class="form-control" accept="image/jpeg,image/png,image/jpg" required style="display: none;" aria-label="Upload profile photo">
                         <button type="button" class="btn btn-primary" onclick="document.getElementById('photoInput').click();">
                             <i class="bi bi-folder-open"></i> Select Photo
                         </button>

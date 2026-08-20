@@ -376,7 +376,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                         </div>
 
                     <?php elseif($question['question_type'] === 'short_answer'): ?>
-                        <textarea name="q_<?php echo $question['id']; ?>" class="form-control" rows="3" placeholder="Type your answer here..."><?php echo htmlspecialchars($_POST['q_' . $question['id']] ?? ''); ?></textarea>
+                        <textarea name="q_<?php echo $question['id']; ?>" id="short_answer_<?php echo $question['id']; ?>" class="form-control" rows="3" placeholder="Type your answer here..." autocomplete="off" aria-label="Your answer"><?php echo htmlspecialchars($_POST['q_' . $question['id']] ?? ''); ?></textarea>
 
                     <?php endif; ?>
                 </div>
