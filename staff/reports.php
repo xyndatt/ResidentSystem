@@ -649,7 +649,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                         <option value="<?php echo $sv['id']; ?>"><?php echo htmlspecialchars($sv['title']); ?> (<?php echo $sv['response_count']; ?> responses)</option>
                                     <?php endforeach; ?>
                                 </select>
-                                <button onclick="var sel=document.getElementById('surveyDetailSelect');if(sel.value){window.location='reports.php?type=survey_detail&survey_id='+sel.value;}else{alert('Please select a survey.');}" class="btn btn-primary">
+                                <button onclick="var sel=document.getElementById('surveyDetailSelect');if(sel.value){window.location='reports.php?type=survey_detail&survey_id='+sel.value;}else{showConfirmModal('No Selection', 'Please select a survey.', {type: 'primary', confirmText: 'OK', icon: 'bi-exclamation-circle'});}" class="btn btn-primary">
                                     <i class="bi bi-bar-chart-line"></i> View Detail
                                 </button>
                             </div>

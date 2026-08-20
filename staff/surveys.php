@@ -111,7 +111,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
         <!-- Breadcrumbs -->
         <div class="breadcrumbs">
             <a href="dashboard.php">Dashboard</a>
-            <span class="separator">/</span>
+            <span class="separator">&gt;</span>
             <span class="active">Surveys</span>
         </div>
 

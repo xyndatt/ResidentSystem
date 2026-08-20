@@ -263,9 +263,9 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
         <!-- Breadcrumbs -->
         <div class="breadcrumbs">
             <a href="dashboard.php">Dashboard</a>
-            <span class="separator">/</span>
+            <span class="separator">&gt;</span>
             <a href="surveys.php">Surveys</a>
-            <span class="separator">/</span>
+            <span class="separator">&gt;</span>
             <span class="active">Edit Survey</span>
         </div>
 
@@ -634,8 +634,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
     function validateSurveyForm(){
         var title = document.querySelector('input[name="title"]');
         if(!title || !title.value.trim()){
-            alert('Please enter a survey title.');
-            if(title) title.focus();
+            showConfirmModal('Missing Title', 'Please enter a survey title.', {type: 'primary', confirmText: 'OK', icon: 'bi-exclamation-circle'}).then(function(){ if(title) title.focus(); });
             return false;
         }
         return true;

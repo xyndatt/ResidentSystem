@@ -245,20 +245,6 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
             .floating-shape {
                 display: none;
             }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .floating-shape {
-                animation: none;
-            }
-
-            .hero-icon,
-            .hero-title,
-            .hero-subtitle,
-            .hero-description,
-            .hero-buttons {
-                animation: none;
-                opacity: 1;
             }
         }
     </style>

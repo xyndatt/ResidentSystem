@@ -153,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])){
                 <h3>Upload Photo</h3>
             </div>
             <div class="card-body">
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
+                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data" onsubmit="preventDuplicateSubmit(this)">
                     <!-- Upload Area -->
                     <div style="border: 2px dashed #5AA9E6; border-radius: 25px; padding: 3rem; text-align: center; background: rgba(90, 169, 230, 0.05); margin-bottom: 2rem;">
                         <div style="font-size: 3rem; color: #5AA9E6; margin-bottom: 1rem;">
