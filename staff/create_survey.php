@@ -369,7 +369,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
     function validateSurveyForm(){
         var title = document.querySelector('input[name="title"]');
         if(!title || !title.value.trim()){
-            showConfirmModal('Missing Title', 'Please enter a survey title.', {type: 'primary', confirmText: 'OK', icon: 'bi-exclamation-circle'}).then(function(){ if(title) title.focus(); });
+            showConfirmModal('Missing Title', 'Please enter a survey title.', {type: 'primary', confirmText: 'OK', icon: 'bi-exclamation-circle'}, function(){ if(title) title.focus(); });
             return false;
         }
         var questionTexts = document.querySelectorAll('input[name="question_text[]"]');
@@ -381,7 +381,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
             }
         }
         if(!hasQuestion){
-            showConfirmModal('No Questions', 'Please add at least one question with text.', {type: 'warning', confirmText: 'OK', icon: 'bi-exclamation-circle'});
+            showConfirmModal('No Questions', 'Please add at least one question with text.', {type: 'warning', confirmText: 'OK', icon: 'bi-exclamation-circle'}, function(){});
             return false;
         }
         return true;

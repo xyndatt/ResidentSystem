@@ -471,7 +471,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
     var newQuestionCounter = 0;
 
     function removeExistingQuestion(qId){
-        showConfirmModal('Remove Question', 'This question will be removed. Continue?', {type: 'warning', confirmText: 'Remove'}).then(function(ok){
+        showConfirmModal('Remove Question', 'This question will be removed. Continue?', {type: 'warning', confirmText: 'Remove'}, function(ok){
             if(!ok) return;
             var el = document.getElementById('existing_question_' + qId);
             if(el){
@@ -634,7 +634,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
     function validateSurveyForm(){
         var title = document.querySelector('input[name="title"]');
         if(!title || !title.value.trim()){
-            showConfirmModal('Missing Title', 'Please enter a survey title.', {type: 'primary', confirmText: 'OK', icon: 'bi-exclamation-circle'}).then(function(){ if(title) title.focus(); });
+            showConfirmModal('Missing Title', 'Please enter a survey title.', {type: 'primary', confirmText: 'OK', icon: 'bi-exclamation-circle'}, function(){ if(title) title.focus(); });
             return false;
         }
         return true;

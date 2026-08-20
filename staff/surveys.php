@@ -187,13 +187,13 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                                 <a href="surveys.php?action=toggle&id=<?php echo $survey['id']; ?>" 
                                                    class="btn btn-sm btn-secondary" 
                                                    title="<?php echo $survey['is_active'] ? 'Deactivate' : 'Activate'; ?>"
-                                                   onclick="event.preventDefault(); event.stopPropagation(); showConfirmModal('<?php echo $survey['is_active'] ? 'Deactivate' : 'Activate'; ?> Survey', 'Are you sure you want to <?php echo $survey['is_active'] ? 'deactivate' : 'activate'; ?> this survey?', {type: 'primary', confirmText: '<?php echo $survey['is_active'] ? 'Deactivate' : 'Activate'; ?>'}).then(function(ok){ if(ok) window.location.href='surveys.php?action=toggle&id=<?php echo $survey['id']; ?>'; });">
+                                                   onclick="event.preventDefault(); event.stopPropagation(); showConfirmModal('<?php echo $survey['is_active'] ? 'Deactivate' : 'Activate'; ?> Survey', 'Are you sure you want to <?php echo $survey['is_active'] ? 'deactivate' : 'activate'; ?> this survey?', {type: 'primary', confirmText: '<?php echo $survey['is_active'] ? 'Deactivate' : 'Activate'; ?>'}, function(ok){ if(ok) window.location.href='surveys.php?action=toggle&id=<?php echo $survey['id']; ?>'; });">
                                                     <i class="bi bi-<?php echo $survey['is_active'] ? 'pause' : 'play'; ?>-circle"></i>
                                                 </a>
                                                 <a href="surveys.php?action=delete&id=<?php echo $survey['id']; ?>" 
                                                    class="btn btn-sm btn-danger" 
                                                    title="Delete"
-                                                   onclick="event.preventDefault(); event.stopPropagation(); showConfirmModal('Delete Survey', 'Are you sure you want to delete this survey? This action cannot be undone.', {type: 'destructive', confirmText: 'Delete'}).then(function(ok){ if(ok) window.location.href='surveys.php?action=delete&id=<?php echo $survey['id']; ?>'; });">
+                                                   onclick="event.preventDefault(); event.stopPropagation(); showConfirmModal('Delete Survey', 'Are you sure you want to delete this survey? This action cannot be undone.', {type: 'destructive', confirmText: 'Delete'}, function(ok){ if(ok) window.location.href='surveys.php?action=delete&id=<?php echo $survey['id']; ?>'; });">
                                                     <i class="bi bi-trash"></i>
                                                 </a>
                                             </div>

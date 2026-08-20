@@ -244,7 +244,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                         <td><?php echo date('M d, Y', strtotime($staff['created_at'])); ?></td>
                                         <td>
                                             <?php if($staff['id'] != $_SESSION['id']): ?>
-                                                <form method="POST" action="manage_staff.php" style="display:inline;" data-no-ajax onsubmit="event.preventDefault(); var f=this; showConfirmModal('Delete Staff', 'Are you sure you want to delete this staff account? This action cannot be undone.', {type: 'destructive', confirmText: 'Delete'}).then(function(ok){ if(ok) f.submit(); });">
+                                                <form method="POST" action="manage_staff.php" style="display:inline;" data-no-ajax onsubmit="event.preventDefault(); var f=this; showConfirmModal('Delete Staff', 'Are you sure you want to delete this staff account? This action cannot be undone.', {type: 'destructive', confirmText: 'Delete'}, function(ok){ if(ok) f.submit(); });">
                                                     <input type="hidden" name="delete_staff" value="1">
                                                     <input type="hidden" name="id" value="<?php echo $staff['id']; ?>">
                                                     <?php outputCSRFHiddenField(); ?>

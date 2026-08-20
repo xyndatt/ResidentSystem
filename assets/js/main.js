@@ -348,16 +348,22 @@ function _hideConfirmModal(confirmed) {
  * @param {string} title - Modal title
  * @param {string} message - Modal description
  * @param {object} options - { type: 'destructive'|'warning'|'primary', confirmText: string, icon: string }
- * @returns {Promise<boolean>} - Resolves true if confirmed, false if cancelled
+ * @param {function} callback - Optional callback(confirmed) — preferred for inline handlers
+ * @returns {Promise<boolean>|undefined} - Returns Promise if no callback given
  */
-function showConfirmModal(title, message, options = {}) {
+function showConfirmModal(title, message, options, callback) {
+    if (typeof options === 'function') {
+        callback = options;
+        options = {};
+    }
+    options = options || {};
     _injectConfirmModal();
-    const modal = document.getElementById('confirmModal');
-    const iconEl = document.getElementById('confirmModalIcon');
-    const titleEl = document.getElementById('confirmModalTitle');
-    const msgEl = document.getElementById('confirmModalMessage');
-    const btnOk = document.getElementById('confirmModalOk');
-    const type = options.type || 'destructive';
+    var modal = document.getElementById('confirmModal');
+    var iconEl = document.getElementById('confirmModalIcon');
+    var titleEl = document.getElementById('confirmModalTitle');
+    var msgEl = document.getElementById('confirmModalMessage');
+    var btnOk = document.getElementById('confirmModalOk');
+    var type = options.type || 'destructive';
 
     titleEl.textContent = title;
     msgEl.textContent = message;
@@ -369,6 +375,13 @@ function showConfirmModal(title, message, options = {}) {
     btnOk.className = 'btn ' + (type === 'destructive' ? 'btn-confirm-destructive' : type === 'warning' ? 'btn-confirm-destructive' : 'btn-confirm-primary');
 
     modal.classList.add('active');
+
+    if (callback) {
+        _confirmModalResolve = function(confirmed) {
+            callback(confirmed);
+        };
+        return undefined;
+    }
 
     return new Promise(function(resolve) {
         _confirmModalResolve = resolve;
