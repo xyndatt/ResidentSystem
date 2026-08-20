@@ -147,7 +147,7 @@ $is_partial = isset($_GET['partial']) && $_GET['partial'] == '1';
                                             <a href="edit_resident.php?id=<?php echo $resident['id']; ?>" class="btn btn-sm btn-primary" title="Edit">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
-                                            <form method="POST" action="residents.php" style="display:inline;" onsubmit="event.preventDefault(); var f=this; showConfirmModal('Delete Resident', 'Are you sure you want to delete this resident? This action cannot be undone.', {type: 'destructive', confirmText: 'Delete'}).then(function(ok){ if(ok) f.submit(); });">
+                                            <form method="POST" action="residents.php" style="display:inline;" data-no-ajax onsubmit="event.preventDefault(); var f=this; showConfirmModal('Delete Resident', 'Are you sure you want to delete this resident? This action cannot be undone.', {type: 'destructive', confirmText: 'Delete'}).then(function(ok){ if(ok) f.submit(); });">
                                                 <input type="hidden" name="delete" value="1">
                                                 <input type="hidden" name="id" value="<?php echo $resident['id']; ?>">
                                                 <?php outputCSRFHiddenField(); ?>

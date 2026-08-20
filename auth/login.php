@@ -268,29 +268,6 @@ $lockout_minutes_remaining = 0;
             margin-bottom: 1.2rem;
             width: fit-content;
         }
-
-        /* ── Footer ── */
-        .global-footer {
-            background: rgba(255,255,255,.7);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--border-color);
-            padding: 2rem 2rem 1rem;
-            margin-left: 0;
-        }
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto 1rem;
-            justify-content: space-between;
-        }
-        .footer-column { flex: 1; min-width: 160px; }
-        .footer-column h3 { font-size: 0.9rem; color: var(--primary); margin-bottom: 0.5rem; }
-        .footer-column p  { font-size: 0.8rem; color: var(--gray); margin-bottom: 0.3rem; }
-        .footer-column p i { margin-right: 0.3rem; }
-        .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 1rem; }
-        .footer-bottom p { font-size: 0.78rem; color: var(--gray); margin: 0; }
     </style>
 </head>
 <body>
@@ -374,35 +351,15 @@ $lockout_minutes_remaining = 0;
                         <span class="btn-text"><i class="bi bi-box-arrow-in-right"></i> Login</span>
                     </button>
                 </div>
+                <div style="text-align:center; margin-top:1.25rem;">
+                    <a href="../index.php" style="color: var(--primary); font-size: 0.85rem; text-decoration: none; font-weight: 500;">
+                        <i class="bi bi-arrow-left"></i> Back to Welcome Page
+                    </a>
+                </div>
             </form>
 
         </div>
     </div>
-
-    <footer class="global-footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3><i class="bi bi-hospital"></i> Barangay Health Center</h3>
-                <p>Empowering our community through efficient health services and modern technology.</p>
-            </div>
-            <div class="footer-column">
-                <h3>Contact</h3>
-                <p><i class="bi bi-telephone"></i> (02) 8888-1234</p>
-                <p><i class="bi bi-envelope"></i> health@barangay.gov</p>
-            </div>
-            <div class="footer-column">
-                <h3>Address</h3>
-                <p><i class="bi bi-geo-alt"></i> 123 Health Street, Barangay Center, Metro Manila</p>
-            </div>
-            <div class="footer-column">
-                <h3>Office Hours</h3>
-                <p><i class="bi bi-clock"></i> Mon-Fri: 8:00 AM – 5:00 PM</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Barangay Health Center. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script>
     (function () {
